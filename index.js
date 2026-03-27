@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:true})) //to use .body for req
 
 //middleware
 const combiner =(req,res,next)=>{
-    req.bandname=req.body.bandname+req.body.stname
+    req.body.bandname=req.body.bandname+req.body.stname
     next()
 }
 
@@ -79,7 +79,7 @@ app.post("/submit",combiner,(req,res)=>{ //correct way to add middleware
 <body>
   <div class="card">
     <h1>🎸 BAND NAME IS</h1>
-    <h2>${req.bandname}</h2>
+    <h2>${req.body.bandname}</h2>
     <a href="/">Try Again</a>
   </div>
 </body>
